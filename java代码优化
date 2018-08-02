@@ -1,0 +1,8 @@
+1.String常量累加操作的时候，对于静态字符串，java在编译的时候会进行优化，将多个连接操作的字符串在编译时合成一个长字符串。
+例如：String str = "abc"+"edfd"+"jkk";
+在编译时候，str会被处理为“abcefdjkk”
+2.String变量的连接操作，java在编译的时候也会进行优化，实际优化为StringBuilder的连接操作。
+3.StringBuilder是线程不安全的，没有对方法进行同步，StringBuffer是线程安全的，StringBuilder的效率要高于StringBuffer。
+4.StringBuilder和StringBuffer有容量参数，初始容量参数为16，容量不够时，进行扩容，扩容的容量是翻倍
+5.ArrayList和Vector使用相同的算法，ArrayList没有对方法进行同步，线程不安全的，Vector线程安全的，两者性能相差无几。
+6.集合的容量参数，初始容量为10，扩容时，扩展1.5倍。

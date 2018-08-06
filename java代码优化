@@ -6,3 +6,21 @@
 4.StringBuilder和StringBuffer有容量参数，初始容量参数为16，容量不够时，进行扩容，扩容的容量是翻倍
 5.ArrayList和Vector使用相同的算法，ArrayList没有对方法进行同步，线程不安全的，Vector线程安全的，两者性能相差无几。
 6.集合的容量参数，初始容量为10，扩容时，扩展1.5倍。
+
+7.I/O操作，是用缓冲buffer和通道channel。
+FileOutputStream fileOutputStream = new FileOutputStream(new File("./test.txt"));
+FileChannel fileChannel = fileOutputStream.getChannel(); //通道是双向的，不能直接对通道进行读写操作，通过buffer。
+ByteBuffer byteBuffer = ByteBuffer.allocate(1024); // 分配1024个字节大小的缓冲区
+fileChannel.read(byteBuffer); // 从通道中读取1024个字节的数据
+byteBuffer.flip(); //flip()操作，把postion置为0，limit设置为当前的postion。 buffer的三个重要参数，position当前读写位置 limit可读取的总容量 capaticy缓冲区大小。
+
+8.buffer的创建分为两种方式：
+从堆中分配缓冲区ByteBuffer.allocate(1024)；
+从既有数组中创建byte[] abyte = new byte[1024];
+ByteBuffer byteBuffer1 = byteBuffer.wrap(abyte);
+
+9.对于I/O尽可能使用buffer和channel。FileReader和FileWriter性能要优于FileOutputStream和FileInputStream。
+
+10.数组拷贝使用System.arraycopy(),这个函数是native函数，native函数性能要优于普通函数。
+
+11.对于一些工具类，应该使用static方法实现

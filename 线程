@@ -1,0 +1,13 @@
+1.判断线程是否停止的方法：
+  public static boolean interrupted() {
+          return currentThread().isInterrupted(true);
+      }
+    判断当前线程是否停止，线程的停止状态会被这个方法清除。
+  public boolean isInterrupted() {
+        return isInterrupted(false);
+    }
+    判断线程是否停止
+    
+2.停止线程的方法：
+  使用interrupt和抛出异常的方式。
+  使用interrupt和sleep组合方式。线程先睡眠，然后在中止，程序就会进入catch语句。

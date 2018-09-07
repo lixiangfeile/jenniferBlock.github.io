@@ -19,5 +19,14 @@
 -XX:HeapDumpOnOutOfMemoryError  在内存溢出时，导出整个堆信息。
 -XX:HeapDumpPath   导出堆的存放路径
 
+-XX:+UseSerialGC: 新生代，老年代都使用串行回收器
+-XX:+UseParNewGC: 新生代使用ParNew回收器，老年代使用串行
+-XX:+UseParallelGC: 新生代使用Parallel回收器，老年代使用串行
 
+-XX:+UseAdaptiveSizePolicy: 打开ParalleGC回收器的自适应GC策略，
+在这种模式下，新生代的大小，eden和survivior的比列，晋升老年代的对象年龄等参数会被自动调整。
 
+-XX:UseConcMarkSweepGC 启用CMS回收器
+-XX:UseConcGCThreads 设置GC并行时并发线程数量
+-XX:CMSinitiatingOccupancyFraction: 指定CMS回收阈值 ，默认是68.当空间的使用率达到68%时，会执行一次CMS回收
+-XX:CMSCompactAtFullCollection   在CMS垃圾收集完成后，进行一次内存碎片整理。

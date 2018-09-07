@@ -1,0 +1,19 @@
+-XX:PrintGC        遇到GC 就会打印GC日志
+-XX:PrintGCDetails 详细信息
+-XX:PrintGCHeapAtGc   更详细的信息
+-Xloggc:log/gc.log    在当前目录下的log文件夹下生成gc.log文件，文件中记录GC日志
+
+
+
+-XX:+TraceClassLoading    跟踪类的加载
+-XX:+TraceClassUnLoading  跟踪类的卸载
+
+-Xmx20m  设置堆最大值
+-Xms5m   设置堆最小值
+在实际工作中，可以将初始堆-Xms与最大堆-Xmx设置相等，减少程序运行时进行的垃圾回收次数，提高程序的性能。
+
+-Xmn    设置新生代的大小，一般设置为整个堆空间的1/3到1/左右
+-XX:SurvivorRatio 设置eden区与from的比例
+-XX:NewRatio    设置老年代与新生代的比列
+
+

@@ -16,4 +16,8 @@
 -XX:SurvivorRatio 设置eden区与from的比例
 -XX:NewRatio    设置老年代与新生代的比列
 
+-XX:HeapDumpOnOutOfMemoryError  在内存溢出时，导出整个堆信息。
+-XX:HeapDumpPath   导出堆的存放路径
+
+
 
